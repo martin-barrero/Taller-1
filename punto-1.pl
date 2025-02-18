@@ -54,3 +54,9 @@ hermana_de(X, Y) :-
     ((padre_de(Z, X), padre_de(Z, Y)), (madre_de(W, X), madre_de(W, Y));
     (padre_de(Z, X), padre_de(Z, Y)); (madre_de(W, X), madre_de(W, Y))),
     X \= Y.
+
+tio_de(X, Y) :-
+    ((hermano_de(X, Z), padre_de(Z, Y)); (hermano_de(X, Z), madre_de(Z, Y))).
+
+tia_de(X, Y) :-
+    ((hermana_de(X, Z), padre_de(Z, Y)); (hermana_de(X, Z), madre_de(Z, Y))).
