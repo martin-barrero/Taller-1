@@ -60,3 +60,13 @@ tio_de(X, Y) :-
 
 tia_de(X, Y) :-
     ((hermana_de(X, Z), padre_de(Z, Y)); (hermana_de(X, Z), madre_de(Z, Y))).
+
+primo_de(X, Y):-
+    es_hombre(X),
+    (tio_de(Z, Y) ; tia_de(Z, Y)),
+    (padre_de(Z, X) ; madre_de(Z, X)).
+
+prima_de(X, Y):-
+    es_mujer(X),
+    (tio_de(Z, Y) ; tia_de(Z, Y)),
+    (padre_de(Z, X) ; madre_de(Z, X)).
